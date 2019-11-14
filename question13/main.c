@@ -2,27 +2,25 @@
 
 int main()
 {
-    int i, j, n, p, q;
-    printf("Input number of rows : ");
-    scanf("%d", &n);
-    for(i=1;i<=n;i++)
-    {
-        if(i%2==0)
-        { p=1; q=0;}
-        else
-        { p =0; q=1;}
-        for(j=1;j<=i;j++)
-            if(j%2==0)
-            {
-                printf("%d",p);
-            }
-            else
-            {
-                printf("%d", q);
-            }
-            printf("\n");
+  int rows, coef = 1, space, i, j;
 
-    }
+  printf("Input number of rows: ");
+  scanf("%d", &rows);
 
+  for(i=0;i<rows;i++)
+  {
+      for(space=1; space <= rows-i; space++)
+        printf("  ");
+      for(j=0; j<= i; j++)
+      {
+          if (j==0 || i==0)
+              coef = 1;
+          else
+              coef = coef*(i-j+1)/j;
+          printf("%4d", coef);
+      }
+      printf("\n");
+  }
+  return 0;
 
 }
