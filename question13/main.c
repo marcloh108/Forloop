@@ -2,25 +2,24 @@
 
 int main()
 {
-  int rows, coef = 1, space, i, j;
+    int n, i, j, ocno=0, dn;
 
-  printf("Input number of rows: ");
-  scanf("%d", &rows);
+    printf("\n\nConvert Decimal to Octal:\n");
+    printf("--------------------------\n");
 
-  for(i=0;i<rows;i++)
-  {
-      for(space=1; space <= rows-i; space++)
-        printf("  ");
-      for(j=0; j<= i; j++)
-      {
-          if (j==0 || i==0)
-              coef = 1;
-          else
-              coef = coef*(i-j+1)/j;
-          printf("%4d", coef);
-      }
-      printf("\n");
-  }
-  return 0;
+    printf("Enter a number to convert : ");
+    scanf("%d", &n);
+
+    dn = n;
+    i=1;
+
+    for(j=n;j>0;j=j/8)
+    {
+        ocno=ocno+(j % 8)*i;
+        i=i*10;
+        n=n/8;
+    }
+
+    printf("\nThe Octal of %d is %d. \n\n", dn, ocno);
 
 }
