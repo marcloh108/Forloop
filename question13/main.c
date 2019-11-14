@@ -2,22 +2,27 @@
 
 int main()
 {
-    int i, j, space, rows, k, t=1;
+    int i, j, n, p, q;
     printf("Input number of rows : ");
-    scanf("%d", &rows);
-    space = rows+4-1;
-    for(i=1;i<=rows;i++)
+    scanf("%d", &n);
+    for(i=1;i<=n;i++)
     {
-        for(k=space;k>=1;k--)
-        {
-        printf(" ");
-        }
+        if(i%2==0)
+        { p=1; q=0;}
+        else
+        { p =0; q=1;}
+        for(j=1;j<=i;j++)
+            if(j%2==0)
+            {
+                printf("%d",p);
+            }
+            else
+            {
+                printf("%d", q);
+            }
+            printf("\n");
 
-    for(j=1;j<=i;j++)
-    {
-        printf("* ",t++);
     }
-    printf("\n");
-    space--;
-    }
+
+
 }
